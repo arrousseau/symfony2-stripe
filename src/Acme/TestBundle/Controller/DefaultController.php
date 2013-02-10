@@ -33,6 +33,6 @@ class DefaultController extends Controller
             $message = '<h1>Successfully charged $50.00!</h1>';
         }
 
-        return $this->render('AcmeTestBundle:Default:index.html.twig', array('message': $message));
+        return $this->render('AcmeTestBundle:Default:index.html.twig', array('message' => $message));
     }
 }
