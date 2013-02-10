@@ -1,29 +1,18 @@
 {% extends "AcmeTestBundle::layout.html.twig" %}
 
 {% block content %}
+<h3>{{ message }}</h3>
 
-<script src="https://checkout.stripe.com/v2/checkout.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
-
-<a href="#" id="testButton" class="symfony-button-green">Buy Now: $19.00</a>
-
- <script>
-    $('#testButton').click(function(){
-      var token = function(res){
-        console.log('Got token ID:', res.id);
-      };
-
-      StripeCheckout.open({
-        key:         'pk_test_ur0ebwOGBrsNzQrpdCNENIu4',
-        address:     true,
-        amount:      1900,
-        name:        'Test Button',
-        description: 'Test Button',
-        panelLabel:  'Checkout',
-        token:       token
-      });
-
-      return false;
-    });
-</script>
+<form action="{{ path('dashboard') }}" method="post">
+  <input type="hidden" name="test" value="test"/>
+  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+          data-key="pk_test_ur0ebwOGBrsNzQrpdCNENIu4"
+          data-data-amount="1900" 
+          data-data-description="One year's subscription"
+          data-address='true'
+          data-name='Test'
+          data-description='Test Transaction'
+          data-panel-label='Checkout'
+          ></script>
+</form>
 {% endblock %}

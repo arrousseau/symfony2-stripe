@@ -12,7 +12,6 @@ if (!function_exists('intl_get_error_code')) {
 }
 
 //Stripe integration
-require_once __DIR__.'/../vendor/stripe-php/lib/Stripe/Stripe.php';
 $loader->add('', __DIR__.'/../vendor/stripe-php/lib');
 
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
